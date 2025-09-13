@@ -16,6 +16,7 @@ You are loading accumulated knowledge from previous sessions to enhance your und
 ## How to Process Learnings
 
 When reading the memory file:
+
 - **Recent First**: Newer learnings may override older ones
 - **Pattern Recognition**: Look for repeated themes across sessions
 - **Conflict Resolution**: If learnings contradict, prefer more recent ones

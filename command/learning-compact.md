@@ -9,24 +9,27 @@ You are compacting the memory learnings file to reduce size while preserving kno
 
 1. **Read Memory File**: Load `.tmp/memory-learnings.md`
 2. **Parse All Sessions**: Extract learnings from every session
-3. **Consolidate Knowledge**: 
+3. **Consolidate Knowledge**:
    - Remove duplicate learnings
    - Merge similar/overlapping learnings
    - Organize by standard categories
 4. **Backup Original**: Save to `.tmp/memory-learnings.backup.md`
-5. **Write Compacted File**: 
+5. **Write Compacted File**:
    - Consolidated learnings at top
    - Last 5 sessions preserved below
 
 ## Consolidation Rules
 
 ### Deduplication
+
 - Exact matches: Keep only one instance
 - Similar learnings: Merge into comprehensive statement
 - Contradictions: Keep most recent version
 
 ### Category Preservation
+
 Maintain standard categories:
+
 - **Project Conventions**
 - **Technical Requirements**
 - **User Preferences**
@@ -34,6 +37,7 @@ Maintain standard categories:
 - Any other categories found in the file
 
 ### Recent Session Preservation
+
 - Keep last 5 sessions intact after consolidated section
 - These provide context for recent work
 - Helps track evolution of understanding
@@ -85,3 +89,4 @@ Maintain standard categories:
 - **No Learnings to Consolidate**: Keep file as-is
 - **All Recent Sessions**: If ≤5 sessions total, add consolidated section but keep all sessions
 - **Large Consolidated Section**: If consolidated learnings > 50% of original, consider further summarization
+

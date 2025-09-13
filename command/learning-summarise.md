@@ -8,8 +8,9 @@ You are learning from your experience in this session. Your goal is to identify 
 ## What to Look For
 
 Scan the conversation history for:
+
 1. **Project Conventions** - Naming patterns, file organization, coding standards
-2. **Technical Requirements** - API usage, library preferences, architectural decisions  
+2. **Technical Requirements** - API usage, library preferences, architectural decisions
 3. **User Preferences** - Workflow choices, tool selections, communication style
 4. **Domain Knowledge** - Business logic, special terms, project-specific concepts
 5. **Common Issues** - Bugs encountered, solutions found, workarounds applied
@@ -17,6 +18,7 @@ Scan the conversation history for:
 ## How to Summarize
 
 For each learning:
+
 - Use a clear category prefix (e.g., "API Integration:", "Testing Strategy:")
 - Be specific and actionable (not "use good practices" but "use Jest for unit tests")
 - Include file paths or examples where relevant
@@ -43,6 +45,7 @@ From this session, I've learned:
 ## Final Step
 
 Present your learnings to the user and:
+
 1. Ask if these learnings are accurate
 2. Ask if anything is missing or needs correction
 3. Ask if any learnings should be excluded as too specific to this session
