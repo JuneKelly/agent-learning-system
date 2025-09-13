@@ -5,6 +5,7 @@ A learning system that helps AI coding agents remember project-specific knowledg
 ## Why Use This?
 
 Ever find yourself explaining the same project conventions, API quirks, or design decisions to your AI assistant repeatedly? This system solves that by letting agents:
+
 - Learn from your corrections and explanations
 - Store that knowledge between sessions
 - Apply previous learnings to new tasks
@@ -13,10 +14,12 @@ Ever find yourself explaining the same project conventions, API quirks, or desig
 
 1. Clone this repository
 2. Copy or symlink files from `command/` to your opencode command directory:
+
    ```bash
    # From the opencode-memory directory
-   ln -s $(pwd)/command/* ~/.opencode/command/
+   ln -s $(pwd)/command/* ~/.config/opencode/command/
    ```
+
    Note: Adjust the destination path if your opencode installation uses a different location.
 
 ## Usage Workflow
@@ -24,21 +27,27 @@ Ever find yourself explaining the same project conventions, API quirks, or desig
 1. **Start a coding session normally** - Work with your AI assistant as usual
 
 2. **Summarize learnings** - When you've taught the agent something new:
+
    ```
    /learning-summarise
    ```
+
    The agent will present what it learned for your review and correction.
 
 3. **Store learnings** - Save the validated learnings:
+
    ```
    /learning-store
    ```
+
    This appends to `.tmp/memory-learnings.md` with a timestamp.
 
 4. **Recall in future sessions** - Start new sessions with:
+
    ```
    /learning-recall
    ```
+
    The agent will load and apply previous learnings.
 
 ## Example Session
