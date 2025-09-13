@@ -1,6 +1,6 @@
 ---
 description: Store validated learnings to memory file
-agent: plan
+agent: build
 ---
 
 You are persisting validated learnings from this session.
@@ -8,6 +8,7 @@ You are persisting validated learnings from this session.
 ## Pre-Storage Checklist
 
 Before storing, ensure:
+
 1. The user has reviewed and approved the learnings via `/learning-summarise`
 2. Learnings are specific and actionable (not vague generalizations)
 3. No sensitive information (passwords, API keys, personal data) is included
