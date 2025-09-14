@@ -50,6 +50,22 @@ Ever find yourself explaining the same project conventions, API quirks, or desig
 
    The agent will load and apply previous learnings.
 
+5. **Compact learnings** - Compress knowledge:
+
+   ```
+   /learning-compact
+   ```
+
+   The agent will condense previous learnings.
+
+6. **Improve documentation** - Apply learnings to your project documentation:
+
+   ```
+   /learning-improve-docs
+   ```
+
+   The agent identify learnings which represent gaps in project documentation.
+
 ## Example Session
 
 ```
@@ -75,10 +91,12 @@ Assistant: Learnings saved to .tmp/memory-learnings.md
 - `/learning-summarise`: Extract NEW learnings from this session (excludes duplicates)
 - `/learning-store`: Save validated learnings to temporary storage
 - `/learning-recall`: Load learnings from previous sessions
+- `/learning-compact`: Compact previous learnings
+- `/learning-improve-docs`: Analyze learnings and suggest documentation improvements
 
 ## Notes
 
 - Learnings are stored in `.tmp/memory-learnings.md` (not version controlled)
 - The system automatically filters out duplicate knowledge to prevent repetitive learnings
 - The file grows over time - use `/learning-compact` when it exceeds 1MB
-- Consider using learnings to update your project's AGENTS.md documentation
+- Use `/learning-improve-docs` to identify how learnings can enhance your project documentation
