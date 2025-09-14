@@ -32,7 +32,7 @@ Ever find yourself explaining the same project conventions, API quirks, or desig
    /learning-summarise
    ```
 
-   The agent will present what it learned for your review and correction.
+   The agent will check existing documentation and previous learnings, then present only genuinely NEW knowledge for your review and correction.
 
 3. **Store learnings** - Save the validated learnings:
 
@@ -57,7 +57,7 @@ User: The API client should always use the custom error handler from src/utils/e
 Assistant: I understand. Let me note this requirement.
 
 User: /learning-summarise
-Assistant: From this session, I've learned:
+Assistant: After checking existing documentation and previous learnings, here are the NEW insights from this session:
 - API Integration: Always use the custom error handler from src/utils/errors.ts for API client implementations
 - This ensures consistent error handling across the application
 
@@ -72,12 +72,13 @@ Assistant: Learnings saved to .tmp/memory-learnings.md
 
 ## Commands
 
-- `/learning-summarise`: Review what the agent learned this session
+- `/learning-summarise`: Extract NEW learnings from this session (excludes duplicates)
 - `/learning-store`: Save validated learnings to temporary storage
 - `/learning-recall`: Load learnings from previous sessions
 
 ## Notes
 
 - Learnings are stored in `.tmp/memory-learnings.md` (not version controlled)
-- The file grows over time - periodically review and compact it
+- The system automatically filters out duplicate knowledge to prevent repetitive learnings
+- The file grows over time - use `/learning-compact` when it exceeds 1MB
 - Consider using learnings to update your project's AGENTS.md documentation
