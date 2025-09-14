@@ -2,104 +2,46 @@
 description: Analyze learnings and suggest documentation improvements
 ---
 
-You are analyzing the accumulated learnings to identify opportunities for improving project documentation.
+You are analyzing accumulated learnings to identify opportunities for improving project documentation.
 
-## Prerequisites
+**Prerequisite**: This assumes `/learning-recall` has been run, giving you access to consolidated learnings.
 
-This command assumes `/learning-recall` has already been run, so you have access to the consolidated learnings in your context.
+## Process
 
-## Objective
-
-Your goal is to identify learnings that represent gaps in the current project documentation and suggest where those learnings should be incorporated to make them "baked in" to the project.
-
-## Process Steps
-
-1. **Identify Documentation Files**
-   - Look for common documentation files:
-     - `README.md` - Project overview and setup
-     - `CONTRIBUTING.md` - Development guidelines
-     - `AGENTS.md` or `CLAUDE.md` - AI agent conventions
-     - `docs/` directory - Detailed documentation
-     - Source code docstrings and comments
-     - Configuration files with comments
-
-2. **Analyze Each Learning**
-   For each learning in your recalled knowledge:
-   - Determine if it's already documented somewhere
-   - If not documented, identify the most appropriate location
-   - Consider the learning's category and audience
-
-3. **Categorize Documentation Gaps**
-   Group undocumented learnings by where they should go:
-   - **README Updates**: Setup instructions, project conventions
-   - **Agent Instructions**: AI-specific conventions, workflow patterns
-   - **Code Comments**: Implementation details, workarounds
-   - **New Documentation**: Learnings requiring new docs files
-
-4. **Present Findings**
-   For each undocumented learning, show:
-   - The learning itself
-   - Suggested documentation location
-   - How it would improve the project
-   - Example of how it could be written
-
-## Output Format
+1. **Find docs**: Look for README.md, CONTRIBUTING.md, AGENTS.md/CLAUDE.md, docs/, code comments, config files
+2. **Analyze gaps**: For each learning, check if documented; if not, identify best location
+3. **Present findings**: For each gap, show:
 
 ```markdown
 ## Documentation Improvement Opportunities
 
-Based on my accumulated learnings, I've identified [X] opportunities to improve project documentation:
+Based on [X] learnings, found [Y] documentation gaps:
 
-### 1. [Category]: [Brief description]
-
-**Learning**: [The specific learning not yet documented]
-
-**Suggested Location**: `path/to/file.md` (section: [Section Name])
-
-**Why This Matters**: [Brief explanation of value]
-
+### 1. [Brief description]
+**Learning**: [Specific undocumented learning]
+**Location**: `path/to/file.md` (section: [Name])
+**Value**: [Why this matters]
 **Suggested Addition**:
 ```
-
-[Example of how this could be documented]
-
+[Example documentation]
 ```
 
-### 2. [Next opportunity...]
-
-## Summary
-
-- **Total Learnings Analyzed**: [X]
-- **Already Documented**: [Y]
-- **Documentation Gaps Found**: [Z]
+[Additional improvements...]
 
 Would you like me to:
-1. Update the documentation with these improvements
-2. Create a checklist for manual updates
-3. Show more details about specific suggestions
+1. Update the documentation
+2. Create a checklist
+3. Show more details
 ```
 
 ## Guidelines
 
-1. **Be Specific**: Point to exact files and sections
-2. **Show Value**: Explain why each documentation update matters
-3. **Provide Examples**: Show how the documentation could be written
-4. **Respect Existing Style**: Match the tone and format of existing docs
-5. **Prioritize**: List most valuable improvements first
+Good documentation updates:
+- Fill genuine gaps that help future users/agents
+- Are clear, concise, and actionable
+- Match project style and are properly located
+- Focus on project-specific knowledge
 
-## What Makes a Good Documentation Update
+Edge cases: No docs → suggest creating; Many gaps → prioritize top 5-10
 
-- **Fills a genuine gap** - Information that would help future users/agents
-- **Clear and concise** - Adds clarity without bloat
-- **Properly located** - In the most logical file/section
-- **Actionable** - Provides specific guidance, not vague principles
-- **Consistent** - Matches project's documentation style
-
-## Edge Cases
-
-- **No documentation files**: Suggest creating appropriate files
-- **Conflicting information**: Highlight and suggest resolution
-- **Too many gaps**: Prioritize top 5-10 most important
-- **Project-specific vs generic**: Focus on project-specific knowledge
-
-Remember: The goal is to make valuable learnings permanent parts of the project, reducing the need for agents to "relearn" in future sessions.
+Goal: Make valuable learnings permanent, reducing future relearning.

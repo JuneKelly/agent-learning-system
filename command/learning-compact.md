@@ -4,84 +4,43 @@ description: Compact memory file by consolidating and optimizing learnings
 
 You are compacting the memory learnings file to reduce size while preserving knowledge.
 
-## Compaction Process
+## Process
 
-1. **Read Memory File**: Load `.tmp/memory-learnings.md`
-2. **Parse All Sessions**: Extract learnings from every session
-3. **Consolidate Knowledge**:
-   - Remove duplicate learnings
-   - Merge similar/overlapping learnings
-   - Organize by standard categories
-4. **Backup Original**: Save to `.tmp/memory-learnings.backup.md`
-5. **Write Compacted File**:
-   - Consolidated learnings only
-   - Remove ALL previous sessions
-
-## Consolidation Rules
-
-### Deduplication
-
-- Exact matches: Keep only one instance
-- Similar learnings: Merge into comprehensive statement
-- Contradictions: Keep most recent version
-
-### Category Preservation
-
-Maintain standard categories:
-
-- **Project Conventions**
-- **Technical Requirements**
-- **User Preferences**
-- **Domain Knowledge**
-- Any other categories found in the file
-
-### Session Removal
-
-- Remove ALL previous individual sessions after consolidation
-- Only keep the consolidated learnings section
-- This maximizes space efficiency and focuses on distilled knowledge
+1. Read `.tmp/memory-learnings.md`
+2. Parse all sessions and extract learnings
+3. Consolidate:
+   - Remove duplicates
+   - Merge similar learnings
+   - Keep most recent for contradictions
+4. Backup: `cp .tmp/memory-learnings.md .tmp/memory-learnings.backup.md`
+5. Write consolidated learnings only (remove ALL sessions)
 
 ## Output Format
 
 ```markdown
 ## Consolidated Learnings
 
-**Project Conventions:**
-- [Merged learnings about conventions]
-
-**Technical Requirements:**
-- [Consolidated technical knowledge]
-
-**User Preferences:**
-- [Combined user preferences]
-
-**Domain Knowledge:**
-- [Merged domain understanding]
+**[Category]:**
+- [Consolidated learnings]
 ```
 
-Note: Session headings in the original format `## YYYY-MM-DD HH:MM TZ - Session Focus` are preserved during consolidation processing but removed from the final output.
+Preserve standard categories: Project Conventions, Technical Requirements, User Preferences, Domain Knowledge, plus any found in file.
 
-## Implementation Steps
+## Implementation
 
-1. Check if `.tmp/memory-learnings.md` exists
-2. Read and parse entire file
-3. Extract all learnings by category
-4. Apply consolidation rules
-5. Create backup: `cp .tmp/memory-learnings.md .tmp/memory-learnings.backup.md`
-6. Write new compacted file
+1. Check file exists
+2. Read and parse entire file  
+3. Extract learnings by category
+4. Apply consolidation
+5. Create backup
+6. Write compacted file
 7. Report: "✓ Memory file compacted. Backup saved to .tmp/memory-learnings.backup.md"
 
 ## Error Handling
 
-- **File Not Found**: "No memory file found at .tmp/memory-learnings.md"
-- **Empty File**: "Memory file is empty, nothing to compact"
-- **Small File (<10KB)**: "Memory file is already compact"
-- **Parse Errors**: Skip malformed sections, continue with valid data
-- **Write Failure**: Display compacted content for manual save
-
-## Edge Cases
-
-- **No Learnings to Consolidate**: Keep file as-is with empty consolidated section
-- **Only Recent Sessions**: Remove sessions after consolidation regardless of count
-- **Large Consolidated Section**: If consolidated learnings are extensive, consider further summarization
+- File not found: "No memory file found at .tmp/memory-learnings.md"
+- Empty file: "Memory file is empty, nothing to compact"
+- Small file (<10KB): "Memory file is already compact"
+- Parse errors: Skip malformed sections
+- Write failure: Display content for manual save
 
