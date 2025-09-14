@@ -22,6 +22,18 @@ Ever find yourself explaining the same project conventions, API quirks, or desig
 
    Note: Adjust the destination path if your opencode installation uses a different location.
 
+## Learning Categories
+
+The system categorizes and prioritizes learnings to ensure the most valuable knowledge is captured:
+
+1. **User Corrections** (Highest Priority) - Direct corrections to agent behavior
+2. **New Requirements** - Project specifications not in existing docs
+3. **Updated Conventions** - Changes to established patterns
+4. **Fresh Discoveries** - Solutions and workarounds found during sessions
+5. **Preference Clarifications** - User workflow and style preferences
+
+This prioritization ensures that critical corrections and requirements are never overlooked.
+
 ## Usage Workflow
 
 1. **Start a coding session normally** - Work with your AI assistant as usual
@@ -88,7 +100,10 @@ Assistant: Learnings saved to .tmp/memory-learnings.md
 
 ## Commands
 
-- `/learning-summarise`: Extract NEW learnings from this session (excludes duplicates)
+- `/learning-summarise`: Extract NEW learnings from this session
+  - Automatically checks against existing documentation and previous learnings
+  - Filters out duplicate knowledge to maintain high-quality memory
+  - Shows what deduplication was performed for transparency
 - `/learning-store`: Save validated learnings to temporary storage
 - `/learning-recall`: Load learnings from previous sessions
 - `/learning-compact`: Compact previous learnings
