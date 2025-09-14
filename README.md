@@ -16,7 +16,11 @@ Ever find yourself explaining the same project conventions, API quirks, or desig
 2. Copy or symlink files from `command/` to your opencode command directory:
 
    ```bash
-   # From the opencode-memory directory
+   cd opencode-memory
+   # Copy into place
+   cp ./command/* ~/.config/opencode/command/
+
+   # Or... symlink into place
    ln -s $(pwd)/command/* ~/.config/opencode/command/
    ```
 
@@ -39,6 +43,7 @@ This prioritization ensures that critical corrections and requirements are never
 ### Providing Context for Better Learning
 
 The memory system works most efficiently when you provide relevant context:
+
 - Use @mentions to include relevant documentation in your session
 - Focus on the specific area you're working on rather than expecting the system to read all project files
 - The system leverages your provided context for intelligent deduplication
