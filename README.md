@@ -36,23 +36,9 @@ The system categorizes and prioritizes learnings to ensure the most valuable kno
 4. **Fresh Discoveries** - Solutions and workarounds found during sessions
 5. **Preference Clarifications** - User workflow and style preferences
 
-This prioritization ensures that critical corrections and requirements are never overlooked.
-
-## Usage Tips
-
-### Providing Context for Better Learning
-
-The memory system works most efficiently when you provide relevant context:
-
-- Use @mentions to include relevant documentation in your session
-- Focus on the specific area you're working on rather than expecting the system to read all project files
-- The system leverages your provided context for intelligent deduplication
-
-This approach scales better on large projects while maintaining learning quality.
-
 ## Usage Workflow
 
-1. **Start a coding session normally** - Work with your AI assistant as usual
+1. **Start a coding session normally** - Work with your AI assistant as usual. Use `@`-mentions to include relevant documentation in the context.
 
 2. **Summarize learnings** - When you've taught the agent something new:
 
@@ -60,7 +46,7 @@ This approach scales better on large projects while maintaining learning quality
    /learning-summarise
    ```
 
-   The agent will check existing documentation and previous learnings, then present only genuinely NEW knowledge for your review and correction.
+   The agent will check existing documentation and previous learnings, then present only genuinely NEW knowledge, compared to the context.
 
 3. **Store learnings** - Save the validated learnings:
 
@@ -104,10 +90,10 @@ This approach scales better on large projects while maintaining learning quality
 
 ## Commands
 
-- `/learning-summarise`: Extract NEW learnings from this session
+- `/learning-summarise`: Extract new learnings from this session
   - Automatically checks against existing documentation and previous learnings
   - Filters out duplicate knowledge to maintain high-quality memory
-  - Shows what deduplication was performed for transparency
+  - Shows what de-duplication was performed for transparency
 - `/learning-store`: Save validated learnings to temporary storage
 - `/learning-recall`: Load learnings from previous sessions
 - `/learning-compact`: Consolidate all learnings and remove ALL previous sessions (keeps only distilled knowledge for maximum space efficiency)
