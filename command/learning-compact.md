@@ -1,6 +1,5 @@
 ---
 description: Compact memory file by consolidating and optimizing learnings
-agent: build
 ---
 
 You are compacting the memory learnings file to reduce size while preserving knowledge.

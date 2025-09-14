@@ -1,6 +1,5 @@
 ---
 description: Store validated learnings to memory file
-agent: build
 ---
 
 You are persisting validated learnings from this session.

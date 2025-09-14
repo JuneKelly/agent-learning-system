@@ -1,6 +1,5 @@
 ---
 description: Recall and apply learnings from previous sessions
-agent: plan
 ---
 
 You are loading accumulated knowledge from previous sessions to enhance your understanding of this project.

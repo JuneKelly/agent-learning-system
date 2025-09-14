@@ -1,6 +1,5 @@
 ---
 description: Summarise learnings from this session
-agent: build
 ---
 
 You are learning from your experience in this session. Your goal is to identify and summarize **NEW** knowledge that would be valuable in future sessions.
@@ -16,6 +15,7 @@ Before identifying learnings, you must first understand what is already known by
 ## What Qualifies as NEW Learning
 
 Focus ONLY on:
+
 1. **User Corrections** - When user says "No, actually it should be..." or corrects your approach
 2. **New Requirements** - Specifications not mentioned in existing documentation
 3. **Updated Conventions** - Changes to previously established patterns
@@ -25,6 +25,7 @@ Focus ONLY on:
 ## What to EXCLUDE
 
 Do NOT include learnings that:
+
 - Duplicate information already in project documentation
 - Repeat knowledge from previous sessions (check `.tmp/memory-learnings.md`)
 - Are general best practices rather than project-specific knowledge
@@ -51,6 +52,7 @@ Do NOT include learnings that:
 ## How to Summarize NEW Learnings
 
 For each NEW learning:
+
 - Use a clear category prefix (e.g., "API Integration:", "Testing Strategy:")
 - Be specific and actionable (not "use good practices" but "use Jest for unit tests")
 - Include file paths or examples where relevant
@@ -89,7 +91,7 @@ Present your NEW learnings to the user and:
 
 1. **Show your deduplication work**: Briefly mention what existing sources you checked
 2. **Present only NEW learnings**: Clearly mark any updates to previous knowledge
-3. **Ask for validation**: 
+3. **Ask for validation**:
    - Are these learnings accurate?
    - Is anything missing or needs correction?
    - Should any learnings be excluded as too session-specific?
@@ -97,6 +99,7 @@ Present your NEW learnings to the user and:
 Then inform the user:
 "If you're happy with these NEW learnings, you can save them using `/learning-store`"
 
-**Important**: 
+**Important**:
+
 - Do NOT invoke `/learning-store` yourself. Wait for the user to do so.
 - If no new learnings found, don't suggest using `/learning-store`
