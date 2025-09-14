@@ -79,7 +79,7 @@ This approach scales better on large projects while maintaining learning quality
    /learning-compact
    ```
 
-   The agent will condense previous learnings.
+   The agent will consolidate all learnings and remove previous sessions, keeping only the distilled knowledge.
 
 6. **Improve documentation** - Apply learnings to your project documentation:
 
@@ -105,7 +105,7 @@ This approach scales better on large projects while maintaining learning quality
   - Shows what deduplication was performed for transparency
 - `/learning-store`: Save validated learnings to temporary storage
 - `/learning-recall`: Load learnings from previous sessions
-- `/learning-compact`: Compact previous learnings
+- `/learning-compact`: Consolidate all learnings and remove previous sessions
 - `/learning-improve-docs`: Analyze learnings and suggest documentation improvements
 - `/learning-forget`: Reset memory
 

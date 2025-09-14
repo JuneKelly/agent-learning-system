@@ -14,8 +14,8 @@ You are compacting the memory learnings file to reduce size while preserving kno
    - Organize by standard categories
 4. **Backup Original**: Save to `.tmp/memory-learnings.backup.md`
 5. **Write Compacted File**:
-   - Consolidated learnings at top
-   - Last 5 sessions preserved below
+   - Consolidated learnings only
+   - Remove ALL previous sessions
 
 ## Consolidation Rules
 
@@ -35,11 +35,11 @@ Maintain standard categories:
 - **Domain Knowledge**
 - Any other categories found in the file
 
-### Recent Session Preservation
+### Session Removal
 
-- Keep last 5 sessions intact after consolidated section
-- These provide context for recent work
-- Helps track evolution of understanding
+- Remove ALL previous individual sessions after consolidation
+- Only keep the consolidated learnings section
+- This maximizes space efficiency and focuses on distilled knowledge
 
 ## Output Format
 
@@ -57,12 +57,6 @@ Maintain standard categories:
 
 **Domain Knowledge:**
 - [Merged domain understanding]
-
----
-
-## Recent Sessions
-
-[Last 5 sessions preserved as-is]
 ```
 
 ## Implementation Steps
@@ -85,7 +79,7 @@ Maintain standard categories:
 
 ## Edge Cases
 
-- **No Learnings to Consolidate**: Keep file as-is
-- **All Recent Sessions**: If ≤5 sessions total, add consolidated section but keep all sessions
-- **Large Consolidated Section**: If consolidated learnings > 50% of original, consider further summarization
+- **No Learnings to Consolidate**: Keep file as-is with empty consolidated section
+- **Only Recent Sessions**: Remove sessions after consolidation regardless of count
+- **Large Consolidated Section**: If consolidated learnings are extensive, consider further summarization
 

@@ -269,8 +269,8 @@ This approach prevents performance degradation as project size grows while maint
 - Trigger when file exceeds 1MB
 - Create backup at `.tmp/memory-learnings.backup.md`
 - Preserve consolidated learnings at top
-- Keep last 5 individual sessions for reference
-- Update consolidated learnings with new patterns
+- Remove ALL previous individual sessions
+- Update consolidated learnings with any remaining valuable patterns from removed sessions
 
 ### `/learning-improve-docs`
 
