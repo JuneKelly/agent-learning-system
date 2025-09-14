@@ -219,6 +219,15 @@ Additional commands:
 - Handle "no new learnings" case gracefully
 - Scales efficiently on large projects by not reading all documentation
 
+#### Performance and Scaling Considerations
+
+The `/learning-summarise` command is designed to scale efficiently on large projects by:
+- Using documentation already in the agent's context (from @mentions or exploration)
+- Avoiding exhaustive reading of all project documentation files
+- Focusing deduplication on agent context + previous learnings only
+
+This approach prevents performance degradation as project size grows while maintaining learning quality.
+
 **Categories for Learning Extraction**:
 
 - User corrections and clarifications

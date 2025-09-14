@@ -24,6 +24,16 @@ For complete technical details including file formats, command specifications, l
 - **Maintain knowledge accuracy** through user validation before storage
 - **Keep learnings actionable** and specific rather than vague
 
+## Implementation Guidelines
+
+### Deduplication Strategy
+
+When implementing learning commands:
+- Compare learnings against agent's current context (from @mentions, exploration)
+- Always check previous learnings in `.tmp/memory-learnings.md`
+- Avoid exhaustive file reading for performance on large projects
+- Prioritize targeted, context-aware deduplication over comprehensive scanning
+
 ## External Documentation
 
 The documentation for the opencode agent system can be found here: <https://opencode.ai/docs>

@@ -34,6 +34,17 @@ The system categorizes and prioritizes learnings to ensure the most valuable kno
 
 This prioritization ensures that critical corrections and requirements are never overlooked.
 
+## Usage Tips
+
+### Providing Context for Better Learning
+
+The memory system works most efficiently when you provide relevant context:
+- Use @mentions to include relevant documentation in your session
+- Focus on the specific area you're working on rather than expecting the system to read all project files
+- The system leverages your provided context for intelligent deduplication
+
+This approach scales better on large projects while maintaining learning quality.
+
 ## Usage Workflow
 
 1. **Start a coding session normally** - Work with your AI assistant as usual
