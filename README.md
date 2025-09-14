@@ -110,7 +110,7 @@ This approach scales better on large projects while maintaining learning quality
   - Shows what deduplication was performed for transparency
 - `/learning-store`: Save validated learnings to temporary storage
 - `/learning-recall`: Load learnings from previous sessions
-- `/learning-compact`: Consolidate all learnings and remove previous sessions
+- `/learning-compact`: Consolidate all learnings and remove ALL previous sessions (keeps only distilled knowledge for maximum space efficiency)
 - `/learning-improve-docs`: Analyze learnings and suggest documentation improvements
 - `/learning-forget`: Reset memory
 
