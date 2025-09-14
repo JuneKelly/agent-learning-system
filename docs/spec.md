@@ -211,12 +211,13 @@ Additional commands:
 
 **Behavior**:
 
-- Must read existing project documentation first
+- Must use documentation already in agent context (from @mentions or exploration)
 - Must read previous learnings from `.tmp/memory-learnings.md`
-- Filter potential learnings against existing knowledge base
+- Filter potential learnings against existing knowledge base (context + previous learnings)
 - Present only genuinely new or updated information
 - Show deduplication work performed for transparency
 - Handle "no new learnings" case gracefully
+- Scales efficiently on large projects by not reading all documentation
 
 **Categories for Learning Extraction**:
 
@@ -307,10 +308,10 @@ Prevent repetitive learnings that reduce memory quality over time.
 
 ### Categories to Exclude
 
-- Information already in project documentation
+- Information already in agent's context or known documentation
 - Repeated knowledge from previous sessions
 - General best practices rather than project-specific insights
-- Obvious conclusions from codebase structure
+- Obvious conclusions from codebase structure or files already seen
 
 ## System Integration
 

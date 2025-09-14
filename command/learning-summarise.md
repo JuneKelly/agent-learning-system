@@ -8,7 +8,7 @@ You are learning from your experience in this session. Your goal is to identify 
 
 Before identifying learnings, you must first understand what is already known by:
 
-1. **Reading existing project documentation** (README.md, AGENTS.md, package.json, etc.)
+1. **Using documentation already in your context** - Leverage whatever project documentation you already have access to from the user's session (via @mentions or project exploration)
 2. **Reading previous learnings** from `.tmp/memory-learnings.md` if it exists
 3. **Comparing potential learnings** against this existing knowledge base
 
@@ -26,26 +26,26 @@ Focus ONLY on:
 
 Do NOT include learnings that:
 
-- Duplicate information already in project documentation
+- Duplicate information already in your context or known documentation
 - Repeat knowledge from previous sessions (check `.tmp/memory-learnings.md`)
 - Are general best practices rather than project-specific knowledge
-- Are obvious from the codebase structure or existing files
+- Are obvious from the codebase structure or files you've already seen
 
 ## Process Steps
 
-1. **Load existing knowledge first**:
-   - Read README.md, AGENTS.md, and other documentation files
-   - Read consolidated learnings from `.tmp/memory-learnings.md`
+1. **Assess existing knowledge first**:
+   - Use whatever project documentation is already in your context (from @mentions or exploration)
+   - Read consolidated learnings from `.tmp/memory-learnings.md` if it exists
    - Scan recent session entries for context
 
 2. **Analyze conversation for NEW insights**:
    - Look for user corrections or clarifications
-   - Identify requirements not in documentation
+   - Identify requirements not covered in your existing context
    - Note preference statements or workflow changes
    - Find solutions to problems encountered this session
 
 3. **Filter against existing knowledge**:
-   - Cross-reference each potential learning
+   - Cross-reference each potential learning against your context and previous learnings
    - Only include genuinely new or updated information
    - Mark when a learning updates/corrects a previous one
 
@@ -62,7 +62,7 @@ For each NEW learning:
 ## Format Example
 
 ```
-After checking existing documentation and previous learnings, here are the NEW insights from this session:
+After checking my existing context and previous learnings, here are the NEW insights from this session:
 
 **Project Conventions:**
 - (Updated from previous session) Component files now use kebab-case, not PascalCase (UserProfile.tsx → user-profile.tsx)
@@ -80,7 +80,7 @@ After checking existing documentation and previous learnings, here are the NEW i
 If after checking existing knowledge you find no genuinely new learnings, respond with:
 
 ```
-After reviewing this session against existing project documentation and previous learnings, I found no new knowledge to store. All insights from this session are already documented or were covered in previous sessions.
+After reviewing this session against my existing context and previous learnings, I found no new knowledge to store. All insights from this session are already within my knowledge or were covered in previous sessions.
 
 This is actually good - it means your existing documentation and learning system are comprehensive!
 ```
@@ -89,7 +89,7 @@ This is actually good - it means your existing documentation and learning system
 
 Present your NEW learnings to the user and:
 
-1. **Show your deduplication work**: Briefly mention what existing sources you checked
+1. **Show your deduplication work**: Briefly mention what existing knowledge sources you used (context + previous learnings)
 2. **Present only NEW learnings**: Clearly mark any updates to previous knowledge
 3. **Ask for validation**:
    - Are these learnings accurate?
