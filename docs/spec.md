@@ -124,7 +124,7 @@ Memory files are stored as `.tmp/memory-learnings.md` in each project directory 
 The memory file uses a specific markdown structure:
 
 - **Ordering**: Newest sessions appear first (reverse chronological order)
-- **Timestamps**: ISO 8601 format (e.g., `2025-09-14T09:38:36+01:00`)
+- **Timestamps**: Local time format (e.g., `2025-09-14 16:27 BST`)
 - **File Structure**:
 
   ```
@@ -135,9 +135,8 @@ The memory file uses a specific markdown structure:
   
   ## Recent Sessions
   
-  ## [ISO_TIMESTAMP]
+  ## [YYYY-MM-DD HH:MM TZ] - [Session Focus]
   **Project**: [project-name]
-  **Session Focus**: [brief description]
   
   ### Learnings
   [Categorized learning entries]
@@ -242,7 +241,7 @@ This approach prevents performance degradation as project size grows while maint
 
 **Behavior**:
 
-- Append to `.tmp/memory-learnings.md` with ISO 8601 timestamp
+- Append to `.tmp/memory-learnings.md` with local timestamp and session focus
 - Include project name and session focus
 - Organize learnings by category
 - Maintain reverse chronological order
@@ -341,5 +340,5 @@ Prevent repetitive learnings that reduce memory quality over time.
 - **Opencode Platform**: Core command execution environment
 - **Markdown Format**: For structured data storage
 - **YAML**: For command frontmatter
-- **ISO 8601**: For timestamp standardization
+- **Local Time Format**: For human-readable timestamps with timezone
 

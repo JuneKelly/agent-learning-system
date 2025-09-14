@@ -59,6 +59,8 @@ Maintain standard categories:
 - [Merged domain understanding]
 ```
 
+Note: Session headings in the original format `## YYYY-MM-DD HH:MM TZ - Session Focus` are preserved during consolidation processing but removed from the final output.
+
 ## Implementation Steps
 
 1. Check if `.tmp/memory-learnings.md` exists

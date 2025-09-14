@@ -16,7 +16,8 @@ You are loading accumulated knowledge from previous sessions to enhance your und
 
 When reading the memory file:
 
-- **Recent First**: Newer learnings may override older ones
+- **Parse Headers**: Headers are a combination of timestamp and a discription of session focus: `## YYYY-MM-DD HH:MM TZ - Session Focus`
+- **Recent First**: Newer learnings may override older ones (sessions are ordered newest first)
 - **Pattern Recognition**: Look for repeated themes across sessions
 - **Conflict Resolution**: If learnings contradict, prefer more recent ones
 - **Relevance Filter**: Focus on learnings relevant to current work
