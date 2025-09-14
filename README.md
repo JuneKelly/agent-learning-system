@@ -76,7 +76,27 @@ This prioritization ensures that critical corrections and requirements are never
    /learning-improve-docs
    ```
 
-   The agent identify learnings which represent gaps in project documentation.
+   The agent will identify learnings which represent gaps in project documentation.
+
+7. **Forget** - Reset learnings to zero:
+
+   ```
+   /learning-forget
+   ```
+
+   The agent will reset the memory file to an empty file.
+
+## Commands
+
+- `/learning-summarise`: Extract NEW learnings from this session
+  - Automatically checks against existing documentation and previous learnings
+  - Filters out duplicate knowledge to maintain high-quality memory
+  - Shows what deduplication was performed for transparency
+- `/learning-store`: Save validated learnings to temporary storage
+- `/learning-recall`: Load learnings from previous sessions
+- `/learning-compact`: Compact previous learnings
+- `/learning-improve-docs`: Analyze learnings and suggest documentation improvements
+- `/learning-forget`: Reset memory
 
 ## Example Session
 
@@ -97,21 +117,3 @@ Assistant: Updated understanding:
 User: /learning-store
 Assistant: Learnings saved to .tmp/memory-learnings.md
 ```
-
-## Commands
-
-- `/learning-summarise`: Extract NEW learnings from this session
-  - Automatically checks against existing documentation and previous learnings
-  - Filters out duplicate knowledge to maintain high-quality memory
-  - Shows what deduplication was performed for transparency
-- `/learning-store`: Save validated learnings to temporary storage
-- `/learning-recall`: Load learnings from previous sessions
-- `/learning-compact`: Compact previous learnings
-- `/learning-improve-docs`: Analyze learnings and suggest documentation improvements
-
-## Notes
-
-- Learnings are stored in `.tmp/memory-learnings.md` (not version controlled)
-- The system automatically filters out duplicate knowledge to prevent repetitive learnings
-- The file grows over time - use `/learning-compact` when it exceeds 1MB
-- Use `/learning-improve-docs` to identify how learnings can enhance your project documentation

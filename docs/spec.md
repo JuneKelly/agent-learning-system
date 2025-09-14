@@ -68,6 +68,8 @@ Future Sessions → /learning-recall → Applied Knowledge
 Maintenance → /learning-compact → Optimized Storage
       ↓
 Improvement → /learning-improve-docs → Knowledge applied to project documentation
+      ↓
+Forgetting → /learning-forget → Knowledge erased
 ```
 
 ### Data Flow Architecture
@@ -172,6 +174,7 @@ All commands follow the pattern `/learning-[action]`:
 - `/learning-recall`
 - `/learning-compact`
 - `/learning-improve-docs`
+- `/learning-forget`
 
 ### Command Implementation Requirements
 
@@ -270,6 +273,14 @@ Additional commands:
 - Suggest specific files and sections for improvements
 - Provide example content for documentation updates
 - Prioritize most valuable improvements
+
+### `/learning-forget`
+
+**Purpose**: Reset memory
+
+**Behavior**:
+
+- Resets memory file to empty
 
 ## Error Handling Requirements
 
