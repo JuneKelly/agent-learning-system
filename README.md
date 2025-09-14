@@ -1,14 +1,21 @@
 # Opencode Memory
 
-A learning system that helps AI coding agents remember project-specific knowledge across sessions.
+A learning system that helps AI coding agents remember project-specific knowledge across sessions, and improve project documentation.
+
+Works with [opencode](https://opencode.ai).
 
 ## Why Use This?
 
-Ever find yourself explaining the same project conventions, API quirks, or design decisions to your AI assistant repeatedly? This system solves that by letting agents:
+Ever find yourself explaining the same project conventions, API quirks, or design decisions to your AI assistant repeatedly? Is your project documentation not very good (yet)?
+
+This system solves that problem by letting agents:
 
 - Learn from your corrections and explanations
 - Store that knowledge between sessions
 - Apply previous learnings to new tasks
+- Use learnings to suggest improvements to project documentation and conventions
+
+In the short term (say, while working on a new feature) the agent carries knowledge forward from one session to the next. In the long term, this knowledge can be folded in to the documentation for your project.
 
 ## Installation
 
