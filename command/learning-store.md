@@ -48,7 +48,7 @@ Before storing, ensure:
 
 1. Run `mkdir -p .tmp` to ensure directory exists
 2. Get current local timestamp using `date "+%Y-%m-%d %H:%M %Z"`
-3. Ask user for brief session focus description if not already provided
+3. Generate a brief session focus description
 4. Read current contents of `.tmp/memory-learnings.md` (if exists)
 5. Format new entry with timestamp and session focus in heading
 6. Prepend new learnings (newest first)
