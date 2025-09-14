@@ -1,6 +1,5 @@
 ---
 description: Analyze learnings and suggest documentation improvements
-agent: build
 ---
 
 You are analyzing the accumulated learnings to identify opportunities for improving project documentation.
