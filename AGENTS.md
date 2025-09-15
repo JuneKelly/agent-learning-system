@@ -11,6 +11,9 @@ The system allows agents to learn from user corrections and explanations, store 
 - **`README.md`** - User-facing documentation (installation, usage, examples)
 - **`docs/spec.md`** - Complete technical specification (see below)
 - **`command/`** - Command implementation files (the core of the system)
+  - These are implementation files containing agent instructions
+  - Not documentation files themselves, but operational directives
+  - Each file corresponds to a specific learning command
 
 ## Technical Specification
 
