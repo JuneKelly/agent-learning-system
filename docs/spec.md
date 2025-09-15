@@ -137,12 +137,15 @@ The memory file uses a specific markdown structure:
   
   ## [YYYY-MM-DD HH:MM TZ] - [Session Focus]
   **Project**: [project-name]
+  **Documentation Seen**: [Brief list of doc locations from session]
   
   ### Learnings
   [Categorized learning entries]
   
   ---
   ```
+
+The "Documentation Seen" field tracks references to documentation encountered during the session (e.g., "README.md, docstrings in lib/auth.ex, docs/api.md"). This helps identify which documentation is most relevant to the learnings generated.
 
 ### Learning Categories
 
@@ -206,21 +209,24 @@ Additional commands:
 
 ### `/learning-summarise`
 
-**Purpose**: Extract NEW learnings from current session while avoiding duplicates
+**Purpose**: Extract NEW learnings from current session while avoiding duplicates and tracking documentation seen
 
 **Behavior**:
 
 - Must use documentation already in agent context (from @mentions or exploration)
 - Must read previous learnings from `.tmp/memory-learnings.md`
+- Track references to documentation encountered in session (files, docstrings, conventions)
 - Filter potential learnings against existing knowledge base (context + previous learnings)
 - Present only genuinely new or updated information
 - Show deduplication work performed for transparency
+- Include list of documentation seen for future reference
 - Handle "no new learnings" case gracefully
 - Scales efficiently on large projects by not reading all documentation
 
 #### Performance and Scaling Considerations
 
 The `/learning-summarise` command is designed to scale efficiently on large projects by:
+
 - Using documentation already in the agent's context (from @mentions or exploration)
 - Avoiding exhaustive reading of all project documentation files
 - Focusing deduplication on agent context + previous learnings only
@@ -237,12 +243,13 @@ This approach prevents performance degradation as project size grows while maint
 
 ### `/learning-store`
 
-**Purpose**: Save validated learnings to memory file
+**Purpose**: Save validated learnings and documentation references to memory file
 
 **Behavior**:
 
 - Append to `.tmp/memory-learnings.md` with local timestamp and session focus
-- Include project name and session focus
+- Include project name, session focus, and documentation seen
+- Store brief references to documentation encountered (paths/locations only)
 - Organize learnings by category
 - Maintain reverse chronological order
 - Handle file creation if it doesn't exist
@@ -279,9 +286,12 @@ This approach prevents performance degradation as project size grows while maint
 
 - Assumes `/learning-recall` has been run first
 - Analyze consolidated learnings for documentation gaps
+- Review "Documentation Seen" fields from recent sessions
+- Prioritize improvements to documentation that was frequently accessed
+- Connect learnings to the specific docs seen when they were generated
 - Suggest specific files and sections for improvements
 - Provide example content for documentation updates
-- Prioritize most valuable improvements
+- Prioritize most valuable improvements based on usage patterns
 
 ### `/learning-forget`
 
@@ -300,6 +310,36 @@ Commands must handle common edge cases:
 - **Parse Errors**: Skip malformed sections, report what was successfully loaded
 - **Large Files**: Warn when approaching or exceeding 1MB limit
 - **No New Content**: Handle gracefully without unnecessary operations
+
+## Documentation Tracking System
+
+### Purpose
+
+Track which documentation was seen during learning sessions to better target documentation improvements.
+
+### What Constitutes "Documentation"
+
+Documentation includes any form of structured knowledge in the project:
+
+- **Source code docstrings**: Module and function documentation in code files
+- **Documentation files**: README.md, CONTRIBUTING.md, files in docs/ directories
+- **Specification files**: API specs, technical specifications, design documents
+- **Agent convention files**: AGENTS.md, CLAUDE.md, .cursorrules, or similar AI assistant guidance files
+- **Configuration documentation**: Comments in config files, setup guides
+
+### Implementation
+
+- **Session Tracking**: Record references to documentation encountered during each session
+- **Brief References**: Store only paths/locations, not content (e.g., "docstrings in lib/auth.ex")
+- **Connection Analysis**: Link learnings to the documentation seen when they were generated
+- **Prioritization**: Use tracking data to prioritize improvements to frequently-accessed documentation
+
+### Benefits
+
+- **Targeted Improvements**: Focus on documentation that agents actually use
+- **Context Awareness**: Understand which docs relate to specific learnings
+- **Efficiency**: Identify high-impact documentation gaps based on usage patterns
+- **Delta Recognition**: Recognize that learnings often represent gaps in the exact documentation the agent was reading
 
 ## Deduplication System
 
@@ -341,4 +381,3 @@ Prevent repetitive learnings that reduce memory quality over time.
 - **Markdown Format**: For structured data storage
 - **YAML**: For command frontmatter
 - **Local Time Format**: For human-readable timestamps with timezone
-

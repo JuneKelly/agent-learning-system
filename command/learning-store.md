@@ -18,6 +18,7 @@ Ensure: User approved learnings via `/learning-summarise`, no sensitive data inc
 ```markdown
 ## [timestamp] - [Session Focus]
 **Project**: [project-name]
+**Documentation Seen**: [Brief list of doc locations from session]
 
 ### Learnings
 [Categorized learnings by type]
@@ -26,7 +27,14 @@ Ensure: User approved learnings via `/learning-summarise`, no sensitive data inc
 ```
 
 5. Write updated content back to file
-6. Confirm: "✓ Learnings stored in .tmp/memory-learnings.md"
+6. Confirm: "✓ Learnings stored in .tmp/memory-learnings.md with documentation references"
+
+## Documentation References
+
+Keep brief, just list locations like:
+- `README.md, CONTRIBUTING.md`
+- `docstrings in lib/foo.ex, lib/bar.ex`
+- `docs/api.md, docs/conventions.md`
 
 ## Error Handling
 

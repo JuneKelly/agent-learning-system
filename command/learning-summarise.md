@@ -10,14 +10,19 @@ You are extracting NEW knowledge from this session that would be valuable in fut
    - Use project documentation already in your context (from @mentions/exploration)
    - Read previous learnings from `.tmp/memory-learnings.md` if it exists
 
-2. **Identify NEW learnings** - Focus ONLY on:
+2. **Track documentation seen**:
+   - Note references to documentation encountered in this session
+   - Include: @mentioned files, explored docs, files with docstrings examined
+   - Keep brief: just file paths/locations (e.g., "docstrings in `lib/foo.ex`", "conventions in `docs/ui.md`")
+
+3. **Identify NEW learnings** - Focus ONLY on:
    - User corrections ("No, actually it should be...")
    - New requirements not in existing documentation
    - Updated conventions or pattern changes
    - Fresh discoveries and solutions from this session
    - User workflow/style preferences
 
-3. **Exclude**: Duplicates, general best practices, obvious codebase info
+4. **Exclude**: Duplicates, general best practices, obvious codebase info
 
 ## Output Format
 
@@ -29,9 +34,10 @@ For each NEW learning:
 
 Present findings showing:
 1. What existing knowledge sources you checked
-2. Only genuinely NEW learnings
-3. Ask for validation: accuracy, missing info, session-specific exclusions
+2. Documentation seen in this session (brief list of locations)
+3. Only genuinely NEW learnings
+4. Ask for validation: accuracy, missing info, session-specific exclusions
 
-Then inform: "If you're happy with these NEW learnings, you can save them using `/learning-store`"
+Then inform: "If you're happy with these NEW learnings and documentation references, you can save them using `/learning-store`"
 
 **Important**: Do NOT invoke `/learning-store` yourself. If no new learnings found, say so without suggesting storage.
