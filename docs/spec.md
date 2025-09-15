@@ -327,6 +327,12 @@ Documentation includes any form of structured knowledge in the project:
 - **Agent convention files**: AGENTS.md, CLAUDE.md, .cursorrules, or similar AI assistant guidance files
 - **Configuration documentation**: Comments in config files, setup guides
 
+### Storage Strategy
+
+- **Brief References Only**: Store only file paths and locations (e.g., "lib/auth.ex:45", "README.md#usage")
+- **No Content Storage**: Never store actual documentation content to keep memory files lean
+- **Performance Focus**: This approach ensures memory files remain manageable even in large projects
+
 ### Implementation
 
 - **Session Tracking**: Record references to documentation encountered during each session
@@ -340,6 +346,10 @@ Documentation includes any form of structured knowledge in the project:
 - **Context Awareness**: Understand which docs relate to specific learnings
 - **Efficiency**: Identify high-impact documentation gaps based on usage patterns
 - **Delta Recognition**: Recognize that learnings often represent gaps in the exact documentation the agent was reading
+- **Feedback Loop Architecture**: Creates a direct connection between learnings and their source documentation
+  - Enables identification of documentation that frequently generates learnings
+  - Highlights documentation sections that may need improvement
+  - Provides data-driven prioritization for documentation updates
 
 ## Deduplication System
 
