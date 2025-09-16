@@ -32,6 +32,7 @@ In the short term (say, while working on a new feature) the agent carries knowle
    ```
 
    Note: Adjust the destination path if your opencode installation uses a different location.
+3. Add `**/.tmp/**` to your gitignore file (the memory file is stored in `.tmp/`
 
 ## Learning Categories
 
