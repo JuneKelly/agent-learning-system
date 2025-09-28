@@ -38,6 +38,6 @@ Present findings showing:
 3. Only genuinely NEW learnings
 4. Ask for validation: accuracy, missing info, session-specific exclusions
 
-Then inform: "If you're happy with these NEW learnings and documentation references, you can save them using `/learning-store`"
+Then inform: "If you're happy with these NEW learnings and documentation references, run `/learning-store` to save them to memory."
 
 **Important**: Do NOT invoke `/learning-store` yourself. If no new learnings found, say so without suggesting storage.
