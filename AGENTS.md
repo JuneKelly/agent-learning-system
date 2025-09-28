@@ -32,10 +32,36 @@ For complete technical details including file formats, command specifications, l
 ### Deduplication Strategy
 
 When implementing learning commands:
+
 - Compare learnings against agent's current context (from @mentions, exploration)
 - Always check previous learnings in `.tmp/memory-learnings.md`
 - Avoid exhaustive file reading for performance on large projects
 - Prioritize targeted, context-aware deduplication over comprehensive scanning
+
+## Development and Modification Guidelines
+
+### Spec Compliance Process
+
+When implementing or modifying learning commands:
+
+1. **Always read `docs/spec.md` first**: Understand complete behavioral requirements before making changes
+2. **Systematic compliance checking**: Verify each implementation against:
+   - Behavioral requirements (what the command should do)
+   - Error handling specifications (edge cases and failure modes)
+   - File format specifications (memory file structure and format)
+
+### Handling Spec Discrepancies
+
+If you discover a discrepancy between the specification and requested modifications:
+
+1. **Identify the conflict**: Clearly explain what the spec requires vs. what is being requested
+2. **Present options to user**: Ask whether they want to:
+   - Proceed with the change AND update the specification to match
+   - Reconsider the requested change to maintain spec compliance
+3. **Wait for explicit direction**: Do not proceed until the user clarifies their preference
+4. **Update both**: If proceeding with changes, update both implementation and specification
+
+This ensures the specification remains the authoritative source of truth while allowing for intentional evolution of the system.
 
 ## External Documentation
 
