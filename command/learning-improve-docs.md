@@ -25,7 +25,9 @@ Based on [X] learnings, found [Y] documentation gaps:
 **Value**: [Why this matters]
 **Suggested Addition**:
 ```
+
 [Example documentation]
+
 ```
 
 [Additional improvements...]
@@ -36,9 +38,13 @@ Would you like me to:
 3. Show more details
 ```
 
+5. Wait for instruction from user.
+
 ## Guidelines
 
 Good documentation updates:
+
+- Are not trivial
 - Fill genuine gaps that help future users/agents
 - Are clear, concise, and actionable
 - Match project style and are properly located
@@ -46,6 +52,7 @@ Good documentation updates:
 - Prioritize improvements to frequently-accessed documentation (based on "Documentation Seen" in sessions)
 
 Priority hints:
+
 - Docs seen when learning was generated get highest priority
 - Frequently-seen docs across multiple sessions are good candidates
 - Consider the connection: learnings often highlight gaps in the exact docs the agent was reading
