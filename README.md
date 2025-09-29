@@ -1,5 +1,7 @@
 # Opencode Memory
 
+> **TL;DR**: Install commands, use `/learning-summarise` and `/learning-store` when you teach the agent something new, use `/learning-recall` at session start. Your agent remembers project-specific knowledge forever.
+
 A learning system that helps AI coding agents remember project-specific knowledge across sessions, and improve project documentation.
 
 Works with [opencode](https://opencode.ai).
