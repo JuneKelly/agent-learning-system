@@ -1,10 +1,10 @@
-# Opencode Memory
+# Agent Learning System
 
 > **TL;DR**: Install commands, use `/learning-summarise` and `/learning-store` when you teach the agent something new, use `/learning-recall` at session start. Your agent remembers project-specific knowledge forever.
 
 A learning system that helps AI coding agents remember project-specific knowledge across sessions, and improve project documentation.
 
-Works with [opencode](https://opencode.ai).
+Works with [OpenCode](https://opencode.ai) and [Claude Code](https://docs.anthropic.com/en/docs/agents-and-agentic-tools/claude-code).
 
 ## Why Use This?
 
@@ -21,20 +21,49 @@ In the short term (say, while working on a new feature) the agent carries knowle
 
 ## Installation
 
-1. Clone this repository
-2. Copy or symlink files from `command/` to your opencode command directory:
+### Quick Install (Recommended)
 
+1. Clone this repository:
    ```bash
-   cd opencode-memory
-   # Copy into place
-   cp ./command/* ~/.config/opencode/command/
-
-   # Or... symlink into place
-   ln -s $(pwd)/command/* ~/.config/opencode/command/
+   git clone https://github.com/yourusername/agent-learning-system.git
+   cd agent-learning-system
    ```
 
-   Note: Adjust the destination path if your opencode installation uses a different location.
-3. Add `**/.tmp/**` to your gitignore file (the memory file is stored in `.tmp/`
+2. Run the install script for your platform:
+
+   **For OpenCode:**
+   ```bash
+   ./install.sh opencode
+   ```
+
+   **For Claude Code:**
+   ```bash
+   ./install.sh claude-code
+   ```
+
+3. Add `**/.tmp/**` to your gitignore file (the memory file is stored in `.tmp/`)
+
+### Manual Installation
+
+If you prefer to install manually, copy or symlink the command files:
+
+**For OpenCode:**
+```bash
+# Copy into place
+cp ./command/* ~/.config/opencode/command/
+
+# Or symlink (recommended)
+ln -s $(pwd)/command/* ~/.config/opencode/command/
+```
+
+**For Claude Code:**
+```bash
+# Copy into place
+cp ./command/* ~/.claude/commands/
+
+# Or symlink (recommended)
+ln -s $(pwd)/command/* ~/.claude/commands/
+```
 
 ## Learning Categories
 

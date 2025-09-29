@@ -65,4 +65,9 @@ This ensures the specification remains the authoritative source of truth while a
 
 ## External Documentation
 
-The documentation for the opencode agent system can be found here: <https://opencode.ai/docs>
+The Agent Learning System works with multiple AI coding agent platforms:
+
+- **OpenCode**: <https://opencode.ai/docs>
+- **Claude Code**: <https://docs.anthropic.com/en/docs/agents-and-agentic-tools/claude-code>
+
+Both platforms support the same markdown-based command format used by this system.

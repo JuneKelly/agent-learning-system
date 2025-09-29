@@ -1,6 +1,6 @@
-# Opencode Memory System Specification
+# Agent Learning System Specification
 
-This document contains the technical specification for the opencode memory system - a learning system that helps AI coding agents remember project-specific knowledge across sessions.
+This document contains the technical specification for the Agent Learning System - a learning system that helps AI coding agents remember project-specific knowledge across sessions.
 
 ## Project Purpose
 
@@ -16,7 +16,7 @@ AI coding agents frequently lose context between sessions, requiring users to re
 
 ### Solution
 
-The opencode memory system provides persistent learning capabilities that allow agents to:
+The Agent Learning System provides persistent learning capabilities that allow agents to:
 
 - Learn from user corrections and explanations during coding sessions
 - Store that knowledge in a structured, timestamped format
@@ -30,7 +30,7 @@ The opencode memory system provides persistent learning capabilities that allow 
 2. **Quality**: Ensure stored learnings are accurate, relevant, and non-duplicate
 3. **Accessibility**: Make knowledge easily recallable and applicable
 4. **Maintenance**: Provide tools for knowledge organization and cleanup
-5. **Integration**: Seamlessly work with existing opencode workflows
+5. **Integration**: Seamlessly work with existing OpenCode and Claude Code workflows
 
 ## High-Level Architecture
 
@@ -39,7 +39,7 @@ The opencode memory system provides persistent learning capabilities that allow 
 1. **Learning Commands** (`command/` directory)
    - Individual command files implementing the learning workflow
    - Each command contains agent instructions for specific learning operations
-   - Commands integrate with opencode's command execution system
+   - Commands integrate with OpenCode or Claude Code command execution system
 
 2. **Memory Storage** (`.tmp/memory-learnings.md`)
    - Local file-based storage for each project
@@ -96,16 +96,16 @@ Forgetting → /learning-forget → Knowledge erased
 
 ### Integration Architecture
 
-The system integrates with the opencode platform through:
+The system integrates with OpenCode and Claude Code through:
 
-- **Command Interface**: Standard opencode command files, which become "slash" commands in the opencode chat interface
+- **Command Interface**: Standard markdown command files with YAML frontmatter, which become "slash" commands in the agent interface
 - **File System**: Local project-specific storage
 - **Agent Context**: Knowledge loaded into agent working memory
 - **User Workflow**: Seamless integration with coding sessions
 
 ## System Overview
 
-The memory system is implemented as a set of "commands" for opencode that allow agents to:
+The memory system is implemented as a set of "commands" for OpenCode and Claude Code that allow agents to:
 
 - Summarize and categorize learnings from coding sessions
 - Store validated knowledge with timestamps and structure
@@ -377,17 +377,23 @@ Prevent repetitive learnings that reduce memory quality over time.
 
 - Memory files stored in `.tmp/` directory (not version controlled)
 - Backup files use `.backup.md` suffix
-- Commands work across any project (not specific to opencode-memory)
+- Commands work across any project (not specific to this repository)
 
-### Opencode Integration
+### Platform Integration
 
+**OpenCode:**
 - Commands installed by symlinking to `~/.config/opencode/command/`
-- Commands follow opencode command file format
-- Integration with opencode agent system
+- Uses standard markdown files with YAML frontmatter
+
+**Claude Code:**
+- Commands installed by symlinking to `~/.claude/commands/`
+- Uses the same markdown files with YAML frontmatter
+
+Both platforms support the same command format, making installation straightforward.
 
 ## External Dependencies
 
-- **Opencode Platform**: Core command execution environment
+- **OpenCode or Claude Code**: Core command execution environment
 - **Markdown Format**: For structured data storage
 - **YAML**: For command frontmatter
 - **Local Time Format**: For human-readable timestamps with timezone
