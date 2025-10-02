@@ -27,12 +27,15 @@ You are extracting NEW knowledge from this session that would be valuable in fut
 ## Output Format
 
 For each NEW learning:
+
 - Use category prefix (e.g., "API Integration:", "Testing Strategy:")
+- Show learnings in a numbered list (`1.`, `2.`, etc)
 - Be specific and actionable (include file paths/examples where relevant)
 - Keep to 1-2 sentences
 - Mark updates with "(Updated from previous session)"
 
 Present findings showing:
+
 1. What existing knowledge sources you checked
 2. Documentation seen in this session (brief list of locations)
 3. Only genuinely NEW learnings
