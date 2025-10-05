@@ -494,6 +494,15 @@ Documentation includes any form of structured knowledge in the project:
 
 Prevent repetitive learnings that reduce memory quality over time while ensuring valuable nuances and refinements are preserved.
 
+### Semantic Deduplication Philosophy
+
+The deduplication system intentionally includes semantic similarity filtering despite the inherent fuzziness:
+
+- **Intent over precision**: Setting the right direction for agents matters more than perfect implementation
+- **Agent discretion**: Agents use judgment to identify semantically similar learnings
+- **User validation**: Final deduplication decisions are validated by users during `/learning-store`
+- **Iterative refinement**: Over time, agents improve at semantic matching through learning patterns
+
 ### Implementation
 
 - **Baseline Check**: Compare against existing documentation and previous learnings

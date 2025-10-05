@@ -67,12 +67,17 @@ ln -s $(pwd)/command/* ~/.claude/commands/
 
 ## Learning Categories
 
-The system categorizes and prioritizes learnings to ensure the most valuable knowledge is captured:
+The system categorizes and prioritizes learnings to ensure the most valuable knowledge is captured.
+
+**The first three categories are by far the most important:**
 
 1. **User Corrections** (Highest Priority) - Direct corrections to agent behavior
 2. **New Requirements** - Project specifications not in existing docs
-3. **Updated Conventions** - Changes to established patterns
-4. **Fresh Discoveries** - Solutions and workarounds found during sessions
+3. **Fresh Discoveries** - Solutions and workarounds found during sessions
+
+**Additional categories:**
+
+4. **Updated Conventions** - Changes to established patterns
 5. **Preference Clarifications** - User workflow and style preferences
 
 ## Usage Workflow
