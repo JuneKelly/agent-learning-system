@@ -55,7 +55,10 @@ Avoid generic categories like "Code Quality" or "Best Practices."
 ✅ **Keep**: Project-specific, actionable, specific (file paths/examples), valuable, validated by user
 ❌ **Reject**: Generic advice, obvious from docs/code, vague, session-specific ephemera, unvalidated assumptions
 
-See `docs/spec.md` for detailed examples.
+**Example:**
+- ❌ "Fixed authentication bug" → Too vague
+- ❌ "Always validate user input" → Generic advice
+- ✅ "Auth middleware requires `user_id` claim in JWT, not `sub` (corrected from initial OAuth implementation)" → Specific, actionable, project-specific
 
 ## Output Format
 
