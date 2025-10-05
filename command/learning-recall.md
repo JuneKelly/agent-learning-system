@@ -7,24 +7,42 @@ You are loading accumulated knowledge from previous sessions to enhance your und
 ## Process
 
 1. Read `.tmp/memory-learnings.md`
-2. Parse learnings (newest first - headers format: `## YYYY-MM-DD HH:MM TZ - Session Focus`)
+2. Parse learnings (newest first - headers: `## YYYY-MM-DD HH:MM TZ - Session Focus`)
 3. Consolidate similar learnings, prefer recent ones for conflicts
-4. Present categorized summary:
+4. Present categorized summary in priority order:
 
 ```
-I've recalled learnings from [X] previous sessions. Here's what I know about this project:
+I've recalled learnings from [X] previous sessions. Here's what I know:
 
-**[Category]:**
-• [Consolidated learnings]
+**User Corrections (HIGHEST PRIORITY):**
+• [Critical corrections to avoid repeating mistakes]
 
-These learnings will guide my assistance in this session. Let me know if any understanding needs updating.
+**New Requirements:**
+• [Project requirements not yet in documentation]
+
+**Fresh Discoveries:**
+• [Important solutions and workarounds]
+
+[Include Updated Conventions, Preference Clarifications, and Custom Categories only if present]
+
+These learnings will guide my assistance. Let me know if any understanding needs updating.
 ```
 
-Keep learnings in context throughout session and note corrections for future summarization.
+## Priority Order
+
+Present in this order (emphasize first three):
+1. User Corrections (highest priority - prevent mistakes)
+2. New Requirements (critical specs)
+3. Fresh Discoveries (valuable solutions)
+4. Updated Conventions
+5. Preference Clarifications
+6. Custom categories (alphabetically)
+
+**Skip empty categories.** Keep learnings in context throughout session.
 
 ## Error Handling
 
-- File not found: Inform this is first session
-- Empty file: No learnings stored yet
-- Parse errors: Skip malformed sections, report loaded content
-- File >1MB: Suggest compaction
+- File not found: "This is the first session - no previous learnings found"
+- Empty file: "No learnings stored yet"
+- Parse errors: Skip malformed sections, report what loaded
+- File >1MB: "Memory file is large. Consider `/learning-compact`"

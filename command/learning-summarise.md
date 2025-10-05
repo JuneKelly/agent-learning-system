@@ -12,34 +12,76 @@ You are extracting NEW knowledge from this session that would be valuable in fut
 
 2. **Track documentation seen**:
    - Note references to documentation encountered in this session
-   - Include: @mentioned files, explored docs, files with docstrings examined
-   - Keep brief: just file paths/locations (e.g., "docstrings in `lib/foo.ex`", "conventions in `docs/ui.md`")
+   - Format: `README.md`, `path/file.ext`, `docstrings in lib/auth.ex`, `docs/api.md#section`
 
-3. **Identify NEW learnings** - Focus ONLY on:
-   - User corrections ("No, actually it should be...")
-   - New requirements not in existing documentation
-   - Updated conventions or pattern changes
-   - Fresh discoveries and solutions from this session
-   - User workflow/style preferences
+3. **Identify NEW learnings** using priority categories below
 
-4. **Exclude**: Duplicates, general best practices, obvious codebase info
+4. **Apply deduplication**:
+   - Exclude exact duplicates AND semantically similar knowledge (even if worded differently)
+   - Exclude general best practices not specific to this project
+   - **Include** refinements, corrections, or important nuances to existing knowledge
+
+## Learning Categories (Priority Order)
+
+**The first three are by far the most important.** Use these in priority order:
+
+### 1. User Corrections (HIGHEST PRIORITY)
+Direct corrections to your understanding or approach.
+- Good: "Tests should use `MyApp.DataCase` not `ExUnit.Case` for database tests (corrected)"
+- Bad: "Fixed a bug" (too vague), "Use proper error handling" (general advice)
+
+### 2. New Requirements
+Project specifications not yet in documentation.
+- Good: "All API responses must include `request_id` field for tracing (not in docs/api.md)"
+- Bad: "The project uses React" (obvious), "Functions should be documented" (general)
+
+### 3. Fresh Discoveries
+Solutions, workarounds, or insights discovered this session.
+- Good: "`UserCache` must be warmed before first request or queries timeout (discovered debugging)"
+- Bad: "Debugging is useful" (general), "The function works" (not actionable)
+
+### 4. Updated Conventions
+Changes to established patterns.
+
+### 5. Preference Clarifications
+User workflow, style, or tooling preferences.
+
+### 6. Custom Categories (Fallback)
+Create specific categories if needed (e.g., "Database Migration:", "Third-party Integration:").
+Avoid generic categories like "Code Quality" or "Best Practices."
+
+## Quality Filter
+
+✅ **Keep**: Project-specific, actionable, specific (file paths/examples), valuable, validated by user
+❌ **Reject**: Generic advice, obvious from docs/code, vague, session-specific ephemera, unvalidated assumptions
+
+See `docs/spec.md` for detailed examples.
 
 ## Output Format
 
-For each NEW learning:
+```markdown
+### Knowledge Sources Checked
+- Previous learnings: [X] sessions
+- Documentation in context: [list]
 
-- Use category prefix (e.g., "API Integration:", "Testing Strategy:")
-- Show learnings in a numbered list (`1.`, `2.`, etc)
-- Be specific and actionable (include file paths/examples where relevant)
-- Keep to 1-2 sentences
-- Mark updates with "(Updated from previous session)"
+### Documentation Seen This Session
+[Standardized list: `file.ext`, `path/file.ext#section`]
 
-Present findings showing:
+### NEW Learnings (Priority Order)
 
-1. What existing knowledge sources you checked
-2. Documentation seen in this session (brief list of locations)
-3. Only genuinely NEW learnings
-4. Ask for validation: accuracy, missing info, session-specific exclusions
+**User Corrections:**
+1. [Learning]
+
+**New Requirements:**
+1. [Learning]
+
+**Fresh Discoveries:**
+1. [Learning]
+
+[Other categories only if applicable...]
+
+Please verify these are project-specific, actionable, and not duplicates. Any to add/remove/clarify?
+```
 
 Then inform: "If you're happy with these NEW learnings and documentation references, run `/learning-store` to save them to memory."
 
