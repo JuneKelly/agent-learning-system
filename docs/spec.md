@@ -149,15 +149,79 @@ The "Documentation Seen" field tracks references to documentation encountered du
 
 ### Learning Categories
 
-Learnings are categorized and prioritized to ensure the most valuable knowledge is captured:
+Learnings are categorized and prioritized to ensure the most valuable knowledge is captured.
 
-1. **User Corrections** (Highest Priority) - Direct corrections to agent behavior
-2. **New Requirements** - Project specifications not in existing documentation  
-3. **Updated Conventions** - Changes to established patterns
-4. **Fresh Discoveries** - Solutions and workarounds found during sessions
-5. **Preference Clarifications** - User workflow and style preferences
+**Priority Order (Highest to Lowest):**
 
-This prioritization ensures that critical corrections and requirements are never overlooked.
+1. **User Corrections** (HIGHEST PRIORITY)
+   - Direct corrections to agent understanding or approach
+   - Critical to prevent repeating mistakes
+   - Examples: "Tests should use `MyApp.DataCase` not `ExUnit.Case` for database tests", "API client retries must use exponential backoff, not fixed delays"
+
+2. **New Requirements**
+   - Project specifications not yet in documentation
+   - Critical project requirements discovered during sessions
+   - Examples: "All API responses must include `request_id` field for tracing", "Background jobs require `max_retries: 3` configuration"
+
+3. **Fresh Discoveries**
+   - Solutions, workarounds, or insights discovered during sessions
+   - Valuable knowledge that saves time in future sessions
+   - Examples: "The `UserCache` module must be warmed before first request or queries timeout", "External API rate limits reset at midnight UTC, not on rolling window"
+
+4. **Updated Conventions**
+   - Changes to established patterns or practices
+   - Evolution of project standards over time
+   - Examples: "Migration to new async pattern: use `Task.async_stream/3` instead of `Enum.map`", "Deprecating `LegacyAuth` module in favor of `Auth.V2`"
+
+5. **Preference Clarifications**
+   - User workflow, style, or tooling preferences
+   - How the user prefers to work on this project
+   - Examples: "User prefers `with` statements over nested `case` for readability", "Always run `mix format` before committing"
+
+6. **Custom Categories** (Fallback)
+   - Project-specific categories that don't fit the standard five
+   - Should be specific (e.g., "Database Migration Strategy", "Third-party Integration")
+   - Avoid generic categories like "Code Quality" or "Best Practices"
+
+**The first three categories are by far the most important** and should be emphasized when presenting, storing, and recalling learnings.
+
+### Learning Quality Criteria
+
+To ensure high-quality learnings that provide genuine value across sessions, learnings must meet these criteria:
+
+**High-Quality Learnings Are:**
+- ✅ **Project-specific**: Unique to this project, not general software advice
+- ✅ **Actionable**: Can be directly applied to future work
+- ✅ **Specific**: Include file paths, function names, or concrete examples where relevant
+- ✅ **Valuable**: Save time or prevent errors in future sessions
+- ✅ **Factually valid**: Represent actual user feedback or discovered facts, not agent assumptions
+
+**Reject Learnings That Are:**
+- ❌ **Generic**: General programming advice applicable to any project
+- ❌ **Obvious**: Already clear from existing documentation or code structure
+- ❌ **Vague**: Too general to act on (e.g., "improve code quality", "write better tests")
+- ❌ **Ephemeral**: Session-specific details with no future value (e.g., "fixed typo on line 42")
+- ❌ **Unvalidated**: Agent assumptions or interpretations not confirmed by user
+
+**Examples of High-Quality vs Low-Quality Learnings:**
+
+Good: "Tests should use `MyApp.DataCase` not `ExUnit.Case` for database tests (corrected from initial approach)"
+- Project-specific, actionable, specific, prevents future mistakes
+
+Bad: "Tests should follow best practices"
+- Generic, vague, not actionable
+
+Good: "The `UserCache` module must be warmed before first request or queries timeout (discovered during debugging)"
+- Project-specific, actionable, saves debugging time
+
+Bad: "Debugging is useful for finding issues"
+- Generic, obvious, no specific value
+
+Good: "External API rate limits reset at midnight UTC, not on rolling window (found through testing)"
+- Specific discovery, actionable, prevents API errors
+
+Bad: "The API has rate limits"
+- Obvious, not specific enough to be actionable
 
 ### Size Management
 
@@ -215,11 +279,13 @@ Additional commands:
 
 - Must use documentation already in agent context (from @mentions or exploration)
 - Must read previous learnings from `.tmp/memory-learnings.md`
-- Track references to documentation encountered in session (files, docstrings, conventions)
+- Track references to documentation encountered in session using standardized format
 - Filter potential learnings against existing knowledge base (context + previous learnings)
-- Present only genuinely new or updated information
+- Apply quality rubric to ensure only valuable learnings are captured
+- Present learnings in priority order (User Corrections → New Requirements → Fresh Discoveries → Updated Conventions → Preference Clarifications → Custom Categories)
 - Show deduplication work performed for transparency
 - Include list of documentation seen for future reference
+- Provide validation checklist for user review
 - Handle "no new learnings" case gracefully
 - Scales efficiently on large projects by not reading all documentation
 
@@ -233,13 +299,37 @@ The `/learning-summarise` command is designed to scale efficiently on large proj
 
 This approach prevents performance degradation as project size grows while maintaining learning quality.
 
-**Categories for Learning Extraction**:
+#### Documentation Reference Format
 
-- User corrections and clarifications
-- New requirements not in documentation
-- Updated conventions or patterns
-- Fresh discoveries and solutions
-- Workflow and style preferences
+Documentation references must use standardized format:
+- Individual files: `README.md`, `lib/auth.ex`
+- With sections: `docs/api.md#authentication`
+- Docstrings: `docstrings in lib/parser.ex`
+- Multiple files: `README.md, CONTRIBUTING.md, docs/setup.md`
+
+#### Categories for Learning Extraction (Priority Order)
+
+Learnings must be categorized using this priority order:
+
+1. **User Corrections** (HIGHEST PRIORITY) - Direct corrections to agent behavior
+2. **New Requirements** - Project specifications not in documentation
+3. **Fresh Discoveries** - Solutions and workarounds found during sessions
+4. **Updated Conventions** - Changes to established patterns
+5. **Preference Clarifications** - User workflow and style preferences
+6. **Custom Categories** - Project-specific categories as needed (fallback)
+
+The first three categories are by far the most important.
+
+#### Quality Validation
+
+Must apply quality rubric (see Learning Quality Criteria section) to filter out:
+- Generic programming advice
+- Obvious information from documentation/code
+- Vague or unactionable statements
+- Session-specific ephemeral details
+- Unvalidated agent assumptions
+
+Must include validation checklist in output for user review.
 
 ### `/learning-store`
 
@@ -250,9 +340,20 @@ This approach prevents performance degradation as project size grows while maint
 - Append to `.tmp/memory-learnings.md` with local timestamp and session focus
 - Include project name, session focus, and documentation seen
 - Store brief references to documentation encountered (paths/locations only)
-- Organize learnings by category
-- Maintain reverse chronological order
+- Organize learnings by category in priority order
+- Maintain reverse chronological order for sessions
 - Handle file creation if it doesn't exist
+- Only include category sections that have learnings (skip empty categories)
+
+**Category Storage Order**:
+
+Store learnings in this priority order within each session:
+1. User Corrections (highest priority)
+2. New Requirements
+3. Fresh Discoveries
+4. Updated Conventions
+5. Preference Clarifications
+6. Custom categories (alphabetically)
 
 ### `/learning-recall`
 
@@ -262,9 +363,22 @@ This approach prevents performance degradation as project size grows while maint
 
 - Read entire `.tmp/memory-learnings.md` file
 - Parse consolidated learnings and recent sessions
-- Present consolidated knowledge to user
+- Consolidate similar learnings, preferring recent ones for conflicts
+- Present consolidated knowledge to user in priority order
+- Emphasize the first three categories (User Corrections, New Requirements, Fresh Discoveries) as most important
+- Only show categories that have learnings (skip empty categories)
 - Handle missing file (first session) gracefully
 - Note any parse errors while loading what's possible
+
+**Presentation Order**:
+
+Present learnings in this priority order:
+1. User Corrections (HIGHEST PRIORITY - emphasize these)
+2. New Requirements (emphasize)
+3. Fresh Discoveries (emphasize)
+4. Updated Conventions
+5. Preference Clarifications
+6. Custom categories (alphabetically)
 
 ### `/learning-compact`
 
@@ -274,9 +388,32 @@ This approach prevents performance degradation as project size grows while maint
 
 - Trigger when file exceeds 1MB
 - Create backup at `.tmp/memory-learnings.backup.md`
-- Preserve consolidated learnings at top
+- Parse all sessions and extract learnings by category
+- Consolidate learnings within each category (remove duplicates, merge similar, keep recent for contradictions)
+- Preserve consolidated learnings at top in priority order
 - Remove ALL previous individual sessions
-- Update consolidated learnings with any remaining valuable patterns from removed sessions
+- Report size reduction and number of sessions removed
+- Only include categories that have learnings (skip empty categories)
+
+**Consolidation Strategy by Category**:
+- **User Corrections**: Keep all distinct corrections (critical, don't over-consolidate)
+- **New Requirements**: Merge similar requirements while preserving specific details
+- **Fresh Discoveries**: Consolidate related discoveries, keep unique solutions
+- **Updated Conventions**: Keep only most recent convention for each pattern
+- **Preference Clarifications**: Merge similar preferences
+- **Custom Categories**: Apply category-appropriate consolidation logic
+
+When in doubt, prefer keeping learnings over removing them.
+
+**Output Order**:
+
+Organize consolidated learnings in priority order:
+1. User Corrections
+2. New Requirements
+3. Fresh Discoveries
+4. Updated Conventions
+5. Preference Clarifications
+6. Custom categories (alphabetically)
 
 ### `/learning-improve-docs`
 
@@ -355,21 +492,33 @@ Documentation includes any form of structured knowledge in the project:
 
 ### Purpose
 
-Prevent repetitive learnings that reduce memory quality over time.
+Prevent repetitive learnings that reduce memory quality over time while ensuring valuable nuances and refinements are preserved.
 
 ### Implementation
 
 - **Baseline Check**: Compare against existing documentation and previous learnings
-- **Filtering**: Remove duplicates, general best practices, and obvious information
+- **Semantic Filtering**: Remove both exact duplicates AND semantically similar knowledge (even if worded differently)
+- **Nuance Preservation**: Include refinements, corrections, or important nuances to existing knowledge
 - **Transparency**: Show users what deduplication work was performed
 - **Quality Focus**: Emphasize genuinely new, project-specific knowledge
 
-### Categories to Exclude
+### Exclusion Criteria
 
-- Information already in agent's context or known documentation
-- Repeated knowledge from previous sessions
-- General best practices rather than project-specific insights
-- Obvious conclusions from codebase structure or files already seen
+Exclude learnings that are:
+- **Exact duplicates**: Already stated in previous learnings or documentation
+- **Semantically duplicate**: Same meaning as existing knowledge, just worded differently
+- **General best practices**: Not specific to this project (e.g., "use proper error handling")
+- **Obvious information**: Clear from codebase structure or existing documentation
+- **Too vague**: Cannot be acted upon (e.g., "improve code quality")
+- **Ephemeral**: Session-specific with no future value (e.g., "fixed typo on line 42")
+
+### Inclusion Criteria
+
+Include learnings that are:
+- **Genuinely new**: Not present in any form in documentation or previous learnings
+- **Refinements**: Important clarifications or corrections to existing knowledge
+- **Nuanced additions**: Add valuable context or specificity to general knowledge
+- **Project-specific**: Unique to this project's requirements, patterns, or constraints
 
 ## System Integration
 
