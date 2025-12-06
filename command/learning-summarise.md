@@ -17,9 +17,9 @@ You are extracting NEW knowledge from this session that would be valuable in fut
 3. **Identify NEW learnings** using priority categories below
 
 4. **Apply deduplication**:
-   - Exclude exact duplicates AND semantically similar knowledge (even if worded differently)
-   - Exclude general best practices not specific to this project
-   - **Include** refinements, corrections, or important nuances to existing knowledge
+   - Exclude exact duplicates from previous learnings
+   - If uncertain whether new learning is duplicate, include it with `[?]` marker
+   - User will validate during review
 
 ## Learning Categories (Priority Order)
 
@@ -52,13 +52,17 @@ Avoid generic categories like "Code Quality" or "Best Practices."
 
 ## Quality Filter
 
-✅ **Keep**: Project-specific, actionable, specific (file paths/examples), valuable, validated by user
-❌ **Reject**: Generic advice, obvious from docs/code, vague, session-specific ephemera, unvalidated assumptions
+Each learning must include at least one of:
+- Specific file path (e.g., `lib/auth.ex`)
+- Module/function name (e.g., `MyApp.DataCase`)
+- Concrete value/setting (e.g., `max_retries: 3`)
+
+**If none present → reject (too vague)**
 
 **Example:**
-- ❌ "Fixed authentication bug" → Too vague
-- ❌ "Always validate user input" → Generic advice
-- ✅ "Auth middleware requires `user_id` claim in JWT, not `sub` (corrected from initial OAuth implementation)" → Specific, actionable, project-specific
+- ❌ "Fixed authentication bug" → No specifics
+- ❌ "Always validate user input" → No specifics
+- ✅ "Auth middleware requires `user_id` claim in JWT, not `sub`" → Concrete values
 
 ## Output Format
 
